@@ -1,3 +1,1 @@
-#!/bin/bash
-
-./bin/neo4j-shell -path ../data/databases/klinik.db -c < /scripts/klinik.cql
+docker exec -i neo4j bin/cypher-shell < ./import.cql
