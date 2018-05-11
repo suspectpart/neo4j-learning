@@ -1,1 +1,1 @@
-docker exec -i neo4j bin/cypher-shell < ./import.cql
+docker exec -i neo4j bin/cypher-shell < ./klinik.cql
