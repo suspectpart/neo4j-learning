@@ -1,1 +1,0 @@
-docker exec -i neo4j bin/cypher-shell < ./klinik.cql
