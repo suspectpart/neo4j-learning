@@ -17,7 +17,6 @@ The example graph is stored in `data.cql`, some example queries can be found in 
 ![Graph](graph.png)
 
 # Run
-
 Start up a docker neo4j docker container and load an example graph into it by running
 ```bash
 $ ./run.sh
@@ -29,6 +28,8 @@ When the container is running, run
 $ node example.js
 ```
 to run an example query against the example graph that fetches all employees of all federations.
+
+Queries can be conveniently run against the server by using the Browser UI running under [http://localhost:7474/browser](http://localhost:7474/browser).
 
 # Findings
 
