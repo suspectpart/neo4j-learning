@@ -18,3 +18,9 @@ match(p:Person)-[:WorksAt]-()-[*0..5]->(dep) where dep.name = "Klinikverband Bad
 
 // get Employees of both Klinikverbände
 match(p:Person)-[:WorksAt]-()-[*0..]->(dep) where dep.name = "Klinikverband Baden-Württemberg" or dep.name='Klinikverband Niedersachsen' return p
+
+// nested trees with apoc
+MATCH p=(n)<-[:DepartmentOf*0..5]-(root)
+WITH COLLECT(p) as ps
+CALL apoc.convert.toTree(ps) yield value
+return value;
