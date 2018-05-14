@@ -24,3 +24,11 @@ MATCH p=(n)<-[:DepartmentOf*0..5]-(root)
 WITH COLLECT(p) as ps
 CALL apoc.convert.toTree(ps) yield value
 return value;
+
+// spatial stuff
+CREATE (home:Place {address: "Gärtnerstr.59, 68169 Mannheim"}), 
+(work:Place {address: "Kurfürstenanlage 52, 69115 Heidelberg"})
+WITH work, home
+CALL apoc.spatial.geocodeOnce(work.address) YIELD location as locationWork
+CALL apoc.spatial.geocodeOnce(home.address) YIELD location as locationHome
+RETURN locationWork, locationHome, distance(point(locationWork), point(locationHome)) / 1000 as distanceInKM
